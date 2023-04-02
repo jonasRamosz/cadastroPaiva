@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="container1">
+        <div class="container2">
+            <h2> FICHA CADASTRAL </h2>
+        </div>
+
+        <form>
+        <div class="container3 ">
+            <div>
+                <div class="dadosPessoais">
+                    <label for="idNome" class="horizontalMargin"> Nome: </label>
+                    <input type="text"
+                            id="idNome"  
+                            name="idNome"
+                            oninput="this.value = this.value.replace(/[^A-Za-z.-]/g, '');" 
+                            size="13" 
+                            minlength="3" 
+                            required>
+                </div>
+                <div class="dadosPessoais">
+                    <label for="idRg" class="horizontalMargin"> RG: </label>
+                    <input type="text"
+                            id="idRg"
+                            name="idRg" 
+                            size="13"
+                            onkeypress="formatar('#######-#',this)"
+                            oninput="this.value = this.value.replace(/[^0-9.-]/g, '');" 
+                            minlength="9" 
+                            maxlength="9">
+                </div>
+                <div class="dadosPessoais">
+                    <label for="idSexo" class="horizontalMargin"> Sexo: </label>
+                    <select name="idSexo" id="idSexo">
+                        <option value="MASCULINO"> Masculino </option>
+                        <option value="FEMININO"> Feminino </option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div class="dadosPessoais">
+                    <label for="idSobreNome"> Sobrenome: </label>
+                    <input type="text"
+                            id="idSobreNome" 
+                            name="idSobreNome" 
+                            size="13" 
+                            oninput="this.value = this.value.replace(/[^A-Za-z.-]/g, '');"
+                            minlength="3" 
+                            required>
+                </div>
+                <div class="dadosPessoais">
+                    <label for="idCpf"> CPF: </label>
+                    <input type="text"
+                            id="idCpf" 
+                            name="idCpf" 
+                            size="13" 
+                            placeholder="xxx.xxx.xxx-xx" 
+                            onkeypress="formatar('###.###.###-##',this)"
+                            oninput="this.value = this.value.replace(/[^0-9.-]/g, '');"
+                            onblur="validaCpf(this.value);"
+                            minlength="14" 
+                            maxlength="14" 
+                            required>
+                </div>
+                <div class="dadosPessoais">
+                    <label for="idData"> Data Nascimento: </label>
+                    <input type="date" 
+                            id="idData" 
+                            name="idData" 
+                            size="13" 
+                            placeholder="##/##/####" 
+                            onblur="calculaData(this.value)" 
+                            style="width: 122px;"
+                            required>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="container3">
+                <label for="idCivil" class="horizontalMargin"> Situacão Civil: </label>
+                <div class="textHorizontal">
+                    <input type="radio" id="idRadio1" name="civil" value="SOLTEIRO">
+                    <label for="idSolteiro"> Solteiro(a) </label>
+                </div>
+                <div class="textHorizontal">
+                    <input type="radio" id="idRadio2" name="civil" value="CASADO">
+                    <label for="idCasado"> Casado(a) </label>
+                </div>
+                <div class="textHorizontal">
+                    <input type="radio" id="idRadio3" name="civil" value="VIUVO">
+                    <label for="idViuvo"> Viúvo(a) </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="container3">
+            <div>
+                <div class="dadosPessoais">
+                    <label for="idCep" class="horizontalMargin"> CEP: </label>
+                    <input type="text"
+                            id="idCep" 
+                            name="idCep" 
+                            size="13" 
+                            placeholder="xxxxx-xxx" 
+                            onblur="pesquisacep(this.value);" 
+                            onkeypress="formatar('#####-##',this)" 
+                            minlength="9" 
+                            maxlength="9" 
+                            required>
+                </div>
+                <div class="dadosPessoais">
+                    <label for="idBairro" class="horizontalMargin"> Bairro: </label>
+                    <input type="text" id="idBairro" name="idBairro" size="13">
+                </div>
+                <div class="dadosPessoais">
+                    <label for="idCidade"> Cidade: </label>
+                    <input type="text" id="idCidade" name="idCidade" size="13">
+                </div>
+            </div>
+
+            <div>
+                <div class="dadosPessoais">
+                    <label for="idLagradouro"> Logradouro: </label>
+                    <input type="text" id="idLagradouro" name="idLagradouro" size="13">
+                </div>
+                <div class="dadosPessoais">
+                    <label for="idNumero"> Número: </label>
+                    <input type="text" id="idNumero" name="idNumero" size="13">
+                </div>
+                <div class="dadosPessoais">
+                    <label for="idUf"> UF: </label>
+                    <input type="text" id="idUf" name="idUf" size="13" minlength="2" maxlength="2">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container3">
+            <div class="complemento">
+                <label for="idComplemento" class="horizontalMargin"> Complemento: </label>
+                <input type="text" id="idComplemento" name="idComplemento" style="width: 445px;">
+            </div>
+        </div>
+        <div class="container3">
+            <div class="botoes">
+                <input type="button" value="Limpar Dados" onclick="limpaForm();">
+                <input type="submit" value="Salvar Dados" class="espacoBotao" onclick="insere();">
+            </div>
+        </div>
+        </form>
+        <div class="containerTabela">
+            <table class="tabela">
+                <caption> <strong> TABELA DE CADASTRO </strong> </caption>
+                <thead>
+                    <th class="tamanho"> Nome </th>
+                    <th class="tamanho"> Sobrenome </th>
+                    <th class="tamanho"> RG </th>
+                    <th class="tamanho"> CPF </th>
+                    <th class="tamanho"> Sexo </th>
+                    <th class="tamanho"> Data Nascimento </th>
+                    <th class="tamanho"> Situação Civil </th>
+                    <th class="tamanho"> CEP </th>
+                    <th class="tamanho"> Logradoro </th>
+                    <th class="tamanho"> Bairro </th>
+                    <th class="tamanho"> Número </th>
+                    <th class="tamanho"> Cidade </th>
+                    <th class="tamanho"> UF </th>
+                    <th class="tamanho"> Complemento </th>
+                </thead>
+                <tbody id="corpoTabela">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

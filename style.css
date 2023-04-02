@@ -1,0 +1,68 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2;
+}
+.container1{
+    display: flex;
+    flex-direction: column;
+}
+.container2{
+    margin: 0 auto;
+}
+.container3{
+    margin: 2px auto;
+    width: 600px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.dadosPessoais{
+    width: 275px;
+    height: auto;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.complemento{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+.botoes{
+    width: 600px;
+    display: flex;
+    justify-content: center;
+}
+select{
+    width: 128px;
+}
+.containerTabela{
+    width: 100%;
+    margin-top: 50px;
+}
+.tabela{
+    margin: 0 auto;
+}
+tbody, th, td, caption{
+    text-align: center;
+}
+strong, h2{
+    font-size: 30px;
+}
+
+.espacoBotao{
+    margin-left: 10px;
+}
+.tamanho{
+    width: 200px;
+}
+caption{
+    margin-bottom: 30px;    
+}
+
+body{
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,228,181,1) 57%);
+}
+td, th{
+    background-color: #FFEBCD;
+}
