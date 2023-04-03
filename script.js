@@ -2,7 +2,6 @@ window.addEventListener('load',montaTabela);
 
 
 function calculaData(data){
-    debugger;
     for(var i = 0; i < 2; i++){
         data = data.replace("-","");
     }
@@ -11,16 +10,30 @@ function calculaData(data){
     var dia = dataHoje.getDate();
     var mes = dataHoje.getMonth() + 1;
     var ano = dataHoje.getFullYear();
+    
+    dia = dia.toString();
+    mes = mes.toString();
+    
+    if(dia.length == 1){
+        dia = '0' + dia;
+    }
+    if(mes.length == 1){
+        mes = '0' + mes;
+    }
+
     var dataCompleta = ano + '-' + mes + '-' + dia;
     for(var i = 0; i < 2; i++){
         dataCompleta = dataCompleta.replace("-","");
     }
-2023310
-    if((data - dataCompleta) >= 20028071){
+
+    data = parseInt(data);
+    dataCompleta = parseInt(dataCompleta);
+
+
+    if((dataCompleta - data) <= -1){
         document.getElementById('idData').value='';
         alert('DATA INVALIDA !');
     }
-
 }
 
 function testaCpf(strCPF) {
